@@ -56,10 +56,11 @@ func (a *App) Start(ctx context.Context) error {
 
 func New() *App {
 	app := &App{
-		router: loadRoutes(),
 		rdb:    redis.NewClient(&redis.Options{}),
 		port:   3000,
 	}
+
+	app.loadRoutes()
 
 	return app
 }
